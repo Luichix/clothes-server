@@ -38,14 +38,14 @@ app.get('/api/notes', (request, response) => {
 // Recibir una unica nota
 app.get('/api/notes/:id', (request, response, next) => {
   Note.findById(request.params.id)
-  .then(note => {
-    if(note){
-      response.json(note)
-    } else {
-      response.status(404).end()
-    }
-  })
-  .catch(error => next(error))
+    .then(note => {
+      if(note){
+        response.json(note)
+      } else {
+        response.status(404).end()
+      }
+    })
+    .catch(error => next(error))
 })
 
 // Agregar una nota
@@ -53,7 +53,7 @@ app.post('/api/notes', (request, response, next) => {
   const body = request.body
 
   if (body.content === undefined) {
-    return response.status(400).json({error: 'content missing' })
+    return response.status(400).json({ error: 'content missing' })
   }
 
   const note = new Note({
@@ -80,22 +80,22 @@ app.put('/api/notes/:id', (request, response, next) => {
     important: body.important,
   }
 
-  Note.findByIdAndUpdate(request.params.id, note, {new: true})
+  Note.findByIdAndUpdate(request.params.id, note, { new: true })
     .then(updatedNote => {
       response.json(updatedNote)
     })
     .catch(error => next(error))
-  
+
 })
 
 
 // ELiminar una nota
 app.delete('/api/notes/:id', (request, response, next) => {
   Note.findByIdAndRemove(request.params.id)
-  .then(result => {
-    response.status(204).end()
-  })
-  .catch(error => next(error))
+    .then(result => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
 })
 
 // Error de ruta desconocida
@@ -110,9 +110,9 @@ const errorHandler = (error, request, response, next) => {
   console.error(error.message)
 
   if(error.name === 'CastError'){
-    return response.status(400).send({ error: 'malformatted id' })    
+    return response.status(400).send({ error: 'malformatted id' })
   } else if (error.name === 'ValidationError'){
-    return response.status(400).json({error:error.message})
+    return response.status(400).json({ error:error.message })
   }
 
   next(error)
