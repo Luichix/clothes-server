@@ -2,7 +2,7 @@ post http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "Conche Tu Ma",
+    "content": "Probando la nueva estructura",
     "important": true
 }
 
