@@ -1,0 +1,29 @@
+post http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "Lol",
+    "important": true
+}
+
+###
+
+get http://localhost:3001/api/notes
+
+###
+
+get http://localhost:3001/api/notes/62195fc88066f5ab1b79d3ff
+
+###
+
+put http://localhost:3001/api/notes/6219718244feb0973f1aed61
+Content-Type: application/json
+
+{
+    "content": "Cambiando crud",
+    "important": true
+}
+
+###
+
+delete http://localhost:3001/api/notes/6219718244feb0973f1aed61
