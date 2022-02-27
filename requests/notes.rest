@@ -1,8 +1,9 @@
 post http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMWJjNDI0OThkMzYyOTMzMjA2NDZjMiIsImlhdCI6MTY0NTk5NjgyOX0.zsOMmXoV84ks9PxnZW-_YdhIJpqATVkEN8jN4zEBJW0
 
 {
-    "content": "Probando la nueva estructura",
+    "content": "A chuparla",
     "important": true
 }
 
@@ -27,3 +28,25 @@ Content-Type: application/json
 ###
 
 delete http://localhost:3001/api/notes/6219718244feb0973f1aed61
+
+###
+post http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "Leo",
+    "name": "Leo Pale",
+    "password":"salainen"
+}
+
+###
+get http://localhost:3001/api/users
+
+###
+post http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "Leo",
+    "password": "salainen"
+}
