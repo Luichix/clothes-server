@@ -21,7 +21,7 @@ put http://localhost:3001/api/notes/6219718244feb0973f1aed61
 Content-Type: application/json
 
 {
-    "content": "Cambiando crud",
+    "content": "Cambiando crud de prueba",
     "important": true
 }
 
