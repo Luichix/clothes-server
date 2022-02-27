@@ -3,10 +3,9 @@ const Note = require('../models/note')
 
 
 // Recibir todas las notas
-notesRouter.get('/', (request, response) => {
-    Note.find({}).then(notes => {
-        response.json(notes)
-    })
+notesRouter.get('/', async (request, response) => {
+    const notes = await Note.find({})
+    response.json(notes)
 })
 
 // Recibir una unica nota
@@ -23,12 +22,8 @@ notesRouter.get('/:id', (request, response, next) => {
 })
 
 // Agregar una nota
-notesRouter.post('/', (request, response, next) => {
+notesRouter.post('/', async (request, response, next) => {
     const body = request.body
-
-    if (body.content === undefined) {
-        return response.status(400).json({ error: 'content missing' })
-    }
 
     const note = new Note({
         content: body.content,
@@ -36,13 +31,12 @@ notesRouter.post('/', (request, response, next) => {
         date: new Date(),
     })
 
-    note
-        .save()
-        .then(savedNote => savedNote.toJSON())
-        .then(savedAndFormattedNote => {
-            response.json(savedAndFormattedNote)
-        })
-        .catch(error => next(error))
+    try{
+        const savedNote = await note.save()
+        response.json(savedNote)
+    } catch(exception) {
+        next(exception)
+    }
 })
 
 // Actualizacion de nota
