@@ -1,9 +1,9 @@
 post http://localhost:3001/api/notes
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMWJjNDI0OThkMzYyOTMzMjA2NDZjMiIsImlhdCI6MTY0NTk5NjgyOX0.zsOMmXoV84ks9PxnZW-_YdhIJpqATVkEN8jN4zEBJW0
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMmI1YzJiMmViNGQ3MTVkNTViOTY3OCIsImlhdCI6MTY0NzEwMTk5Mn0.1jiYbVjIQN4quEnm0t0r5-VVenZmw3BUFIOBb4-5S5I
 
 {
-    "content": "A chuparla",
+    "content": "No funciona",
     "important": true
 }
 
@@ -13,21 +13,22 @@ get http://localhost:3001/api/notes
 
 ###
 
-get http://localhost:3001/api/notes/62195fc88066f5ab1b79d3ff
+get http://localhost:3001/api/notes/622cd2a019617e8610f599f9
 
 ###
 
-put http://localhost:3001/api/notes/6219718244feb0973f1aed61
+put http://localhost:3001/api/notes/622cd2a019617e8610f599f9
 Content-Type: application/json
 
 {
-    "content": "Cambiando crud de prueba",
-    "important": true
+    "content": "Comprobando"
 }
+
+
 
 ###
 
-delete http://localhost:3001/api/notes/6219718244feb0973f1aed61
+delete http://localhost:3001/api/image/6219718244feb0973f1aed61
 
 ###
 post http://localhost:3001/api/users
@@ -47,6 +48,6 @@ post http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-    "username": "Lol",
-    "password": "Prueba"
+    "username": "Luichix",
+    "password": "passRex"
 }

@@ -28,9 +28,14 @@ const errorHandler = (error, request, response, next) => {
         return response.status(401).json({
             error: 'invalid token'
         })
+    } else if (error.name === 'TypeError') {
+        return response.status(500).json({
+            error: 'Internal Server Error'
+        })
     }
 
     logger.error(error.message)
+    console.log(error.name)
 
     next(error)
 }
